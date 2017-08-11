@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title Sakamoto
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='author', content='Sakamoto')
+    link(rel='shortcut icon', type='image/x-icon', href='./img/icon.ico')
+    link(href='https://fonts.googleapis.com/css?family=Quantico', rel='stylesheet')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css')
+    script(src='./js/googleAnalytics.js')
+    block style
+  body
+    #app(v-cloak)
+      block content
+
+    script(src='./js/lib/jquery-2.2.4.min.js')
+    script(src='./js/lib/lodash.min.js')
+    script(src='./js/lib/modernizr.js')
+    script(src='./js/lib/vue.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js')
+    block js

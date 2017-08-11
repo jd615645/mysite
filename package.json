@@ -1,0 +1,32 @@
+{
+  "name": "nyannyan.space",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jd615645/jd615645.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jd615645/jd615645.github.io/issues"
+  },
+  "homepage": "https://sakamoto.com.tw",
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.1.0",
+    "gulp-pug": "^3.1.0",
+    "gulp-vueify": "0.0.3",
+    "gulp-webserver": "^0.9.1"
+  },
+  "dependencies": {
+    "gulp-imagemin": "^3.0.3",
+    "gulp-load-plugins": "^1.3.0",
+    "gulp-uglify": "^2.0.0"
+  }
+}

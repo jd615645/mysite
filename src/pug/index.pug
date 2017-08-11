@@ -1,0 +1,169 @@
+extends layout
+block style
+  link(rel='stylesheet', href='./style/loading.css')
+  link(rel='stylesheet', href='./style/main.css')
+  link(rel='stylesheet', href='./style/skillbar.css')
+  link(rel='stylesheet', href='./style/timeline.css')
+block content
+  transition(name='fade')
+    #loading(v-show='waitLoading')
+      .drip
+  #mainPage.ui.container
+    #main.ui.grid
+      #menu.three.wide.column
+        .ui.secondary.vertical.menu
+          a.item(:class='{active: menuView == 0 }', @click='menuView = 0;') 主頁
+          a.item(:class='{active: menuView == 1 }', @click='menuView = 1;') 關於我
+          a.item(:class='{active: menuView == 2 }', @click='menuView = 2;') 經歷
+          a.item(:class='{active: menuView == 3 }', @click='menuView = 3;') 技能
+          a.item(:class='{active: menuView == 4 }', @click='menuView = 4;') 作品集
+      #context.thirteen.wide.column
+        transition(name='fade')
+          #home.ui.segment(v-if='menuView == 0 || smWindow')
+            #myPhoto.ui.center.aligned.container
+              img(src='./img/myphoto.png')
+            h2 I'm Sakamoto
+            p 從小對資訊相關的事物都會想嘗試，也因如此我從電腦硬體裝修到各種軟體的應用，程式、網頁設計都多少有點接觸。
+            p
+              | 目前就讀於中興大學資訊科學與工程學系，現在中文系擔任教授的研究計畫助理；另外也在學校圖書館校史館打工，負責機構典藏網頁的維護。在某些機緣下我擔任了資訊社的副社長
+              s (其實是被推坑)
+              | ，在這裡認識了一群和我有同樣興趣的人，也希望在這裡能帶動中興的資訊風氣。
+            p
+              | # 2016/09/01
+              br
+              | 聽說現在我變成資訊社社長了(,,・ω・,,)
+            #contactMe
+              a#github.circular.ui.icon.button(href='https://github.com/jd615645' target='_blank')
+                i.icon.github.alternate
+              a#fb.circular.ui.icon.facebook.button(href='https://fb.me/jd615645' target='_blank')
+                i.icon.facebook.f
+              a#email.circular.ui.icon.button(href='mailto:jd615645@gmail.com' target='_blank')
+                i.icon.mail
+        transition(name='fade')
+          #about.ui.segment(v-if='menuView == 1 || smWindow')
+            h1.title 關於我
+            #sakamotoImg.ui.container.allCenter
+              #blinkImg
+                img(:class='{ blinkEye: closeEye }', src='./img/sakamoto.png')
+            .ui.grid.stackable
+              .eight.wide.column
+                h2
+                  i.book.icon
+                  | 教育
+                  small  Education
+                h3 國立高級工業職業學校 資訊科
+                h3 國立中興大學 資訊科學與工程學系
+              .eight.wide.column
+                h2
+                  i.travel.icon
+                  | 工作經驗
+                  small  Work Experience
+                h3 國科會研究計劃兼任助理
+                h3 中興大學校史館工讀生
+              .eight.wide.column
+                h2
+                  i.users.icon
+                  | 社團
+                  small  Club
+                h3 中興大學資訊社 副社長
+                h3 中興大學資訊社 社長
+              .eight.wide.column
+                h2
+                  i.configure.icon
+                  | 證照
+                  small  Club
+                h3 技術士證照 電腦軟體應用 丙級
+                h3 技術士證照 電腦硬體裝修 丙級
+                h3 技術士證照 網頁設計 丙級
+                h3 技術士證照 電腦硬體裝修 乙級
+                h3 MOS專家級認證 Word 2007
+                h3 MOS專家級認證 PPT 2007
+                h3 ACA PhotoshopCS5
+        transition(name='fade')
+          #history.ui.segment.scroll(v-if='menuView == 2 || smWindow')
+            h1.title 經歷
+            section#cd-timeline.cd-container
+              .cd-timeline-block(v-for='event in timeline')
+                .cd-timeline-img.cd-edu(v-if='event.type == 1')
+                  i.icon.student
+                .cd-timeline-img.cd-reward(v-if='event.type == 2')
+                  i.icon.trophy
+                .cd-timeline-img.cd-event(v-if='event.type == 3')
+                  i.icon.flag
+                .cd-timeline-img.cd-work(v-if='event.type == 4')
+                  i.icon.suitcase
+                .cd-timeline-content
+                  img(:src='event.img', v-if='event.img')
+                  h2 {{ event.header }}
+                  p {{ event.text }}
+                  span.cd-date {{ event.date }}
+        transition(name='fade')
+          #skill.ui.segment.scroll(v-if='menuView == 3 || smWindow')
+            h1.title 技能
+            .skill-item(v-for='(skills, key) in skillbar')
+              h2(v-show='key == "webFrontEnd"')
+                i.html5.icon
+                | Web Front End
+              h2(v-show='key == "webBackEnd"')
+                i.laptop.icon
+                | Web Back End
+              h2(v-show='key == "language"')
+                i.code.icon
+                | Language
+              h2(v-show='key == "media"')
+                i.film.icon
+                | Media
+              h2(v-show='key == "other"')
+                i.keyboard.icon
+                | Other
+              .skillbar.clearfix(v-for='skill in skills')
+                .skillbar-title(:class='skillLevel(skill.percent)')
+                  span {{ skill.header }}
+                .skillbar-bar(:class='skillLevel(skill.percent)')
+                .skill-bar-percent {{ skill.comment }}
+        transition(name='fade')
+          #collection.ui.segment.scroll(v-if='menuView == 4 || smWindow')
+            h1.title 作品集
+            #collectionCard.ui.three.column.grid.stackable
+              .column(v-for='item in collection')
+                .ui.fluid.card
+                  .blurring.dimmable.image
+                    .ui.dimmer
+                      .content
+                        .center
+                          .ui.inverted.button(value='NAME') Show More
+                    img(:src='"./img/" + item.name + "-1.png"')
+                  .content
+                    h2 {{ item.header }}
+                    p {{ item.text }}
+                  .extra.content
+                    span
+                      a(:href='item.githubpage', target='_blank')
+                        i.github.icon
+                        | Github
+                    span.right.floated(v-if='item.viewsite')
+                      a(:href='item.viewsite', target='_blank')
+                        i.browser.icon
+                        | View Site
+          #showMore.ui.modal
+            .header Header
+            .content
+              .ui.container
+                #imgShow
+                  img.slideImg(src='#', value='1')
+                  img.slideImg(src='#', value='2')
+                  img.slideImg(src='#', value='3')
+                #dotNav
+                  ul.dots
+                    li(value='1')
+                      a(href='#')
+                    li(value='2')
+                      a(href='#')
+                    li(value='3')
+                      a(href='#')
+  
+
+block append js
+  script(src='./js/loading.js')
+  script(src='./js/lib/modernizr.js')
+  script(src='./js/main.js')

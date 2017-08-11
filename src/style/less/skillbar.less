@@ -1,0 +1,112 @@
+.skillbar {
+  position: relative;
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  background: #eee;
+  height: 35px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -webkit-transition: 0.4s linear;
+  -moz-transition: 0.4s linear;
+  -ms-transition: 0.4s linear;
+  -o-transition: 0.4s linear;
+  transition: 0.4s linear;
+  -webkit-transition-property: width, background-color;
+  -moz-transition-property: width, background-color;
+  -ms-transition-property: width, background-color;
+  -o-transition-property: width, background-color;
+  transition-property: width, background-color;
+}
+
+.skillbar-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  font-weight: bold;
+  font-size: 13px;
+  color: #ffffff;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  span {
+    display: block;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+    height: 35px;
+    line-height: 35px;
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  &.great {
+    background-color: #2185D0;
+  }
+  &.good {
+    background-color: #00B5AD;
+  }
+  &.learning, &.notbad {
+    background-color: #b6cd1b;
+  }
+}
+
+.skillbar-bar {
+  height: 35px;
+  width: 0px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  &.great {
+    background-color: #2185D0;
+    width: 85%;
+    -moz-animation: great 2s ease-out;
+    -webkit-animation: great 2s ease-out;
+  }
+  &.good {
+    background-color: #00B5AD;
+    width: 66%;
+    -moz-animation: good 2s ease-out;
+    -webkit-animation: good 2s ease-out;
+  }
+  &.learning {
+    background-color: #b6cd1b;
+    width: 33%;
+    -moz-animation: learning 2s ease-out;
+    -webkit-animation: learning 2s ease-out;
+  }
+  &.notbad {
+    background-color: #b6cd1b;
+    width: 20%;
+    -moz-animation: notbad 2s ease-out;
+    -webkit-animation: notbad 2s ease-out;
+  }
+}
+
+@-moz-keyframes great       { 0%  { width:0px;} 100%{ width:85%;}  }
+@-moz-keyframes good        { 0%  { width:0px;} 100%{ width:66%;}  }
+@-moz-keyframes learning   { 0%  { width:0px;} 100%{ width:33%;}  }
+@-moz-keyframes notbad      { 0%  { width:0px;} 100%{ width:20%;}  }
+
+@-webkit-keyframes great       { 0%  { width:0px;} 100%{ width:85%;}  }
+@-webkit-keyframes good        { 0%  { width:0px;} 100%{ width:66%;}  }
+@-webkit-keyframes learning   { 0%  { width:0px;} 100%{ width:33%;}  }
+@-webkit-keyframes notbad      { 0%  { width:0px;} 100%{ width:20%;}  }
+
+.skill-bar-percent {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  font-size: 11px;
+  height: 35px;
+  line-height: 35px;
+  color: #ffffff;
+  color: rgba(0, 0, 0, 0.4);
+}
