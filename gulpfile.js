@@ -1,12 +1,14 @@
 var gulp = require('gulp')
 var $ = require('gulp-load-plugins')()
+const del = require('del')
 
 var paths = {
   src: {
     less: './src/style/less/*.less',
     css: './src/style/css/*.css',
     theme: './src/style/css/themes/***',
-    js: './src/js/**',
+    js: './src/js/*.js',
+    lib: './src/js/lib/*.js',
     pug: './src/pug/*.pug',
     images: './src/img/*',
     data: './src/data/*',
@@ -14,9 +16,10 @@ var paths = {
   },
   dist: {
     html: './dist',
-    css: './dist/style',
-    theme: './src/style/themes',
+    style: './dist/style',
+    theme: './dist/style/themes',
     js: './dist/js',
+    lib: './dist/js/lib',
     images: './dist/img',
     data: './dist/data',
     font: './dist/font'
@@ -32,17 +35,24 @@ gulp.task('pug', () => {
 gulp.task('less', () => {
   gulp.src(paths.src.less)
     .pipe($.less())
-    .pipe(gulp.dest(paths.dist.css))
+    .pipe(gulp.dest(paths.dist.style))
 })
 gulp.task('css', () => {
   gulp.src(paths.src.css)
-    .pipe(gulp.dest(paths.dist.css))
+    .pipe(gulp.dest(paths.dist.style))
 })
 
 gulp.task('scripts', () => {
   gulp.src(paths.src.js)
-    // .pipe($.uglify())
+    .pipe($.babel({
+      presets: ['es2015']
+    }))
+    .pipe($.uglify())
     .pipe(gulp.dest(paths.dist.js))
+})
+gulp.task('lib', () => {
+  gulp.src(paths.src.lib)
+    .pipe(gulp.dest(paths.dist.lib))
 })
 
 gulp.task('images', () => {
@@ -75,12 +85,17 @@ gulp.task('webserver', () => {
       directoryListing: false
     }))
 })
+// Cleaning
+gulp.task('clean', () => {
+  return del(['dist/**/*'])
+})
 
 gulp.task('watch', () => {
   gulp.watch(paths.src.pug, ['pug'])
   gulp.watch(paths.src.less, ['less'])
   gulp.watch(paths.src.js, ['scripts'])
+  gulp.watch(paths.src.js, ['data'])
 })
 
 gulp.task('default', ['webserver', 'watch'])
-gulp.task('build', ['pug', 'less', 'css', 'theme', 'scripts', 'data', 'font'])
+gulp.task('build', ['pug', 'less', 'css', 'theme', 'scripts', 'lib', 'data', 'font'])

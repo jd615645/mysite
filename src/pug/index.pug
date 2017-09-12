@@ -40,7 +40,7 @@ block content
               a#email.circular.ui.icon.button(href='mailto:jd615645@gmail.com' target='_blank')
                 i.icon.mail
         transition(name='fade')
-          #about.ui.segment(v-if='menuView == 1 || smWindow')
+          #about.ui.segment(v-if='menuView === 1 || smWindow')
             h1.title 關於我
             #sakamotoImg.ui.container.allCenter
               #blinkImg
@@ -80,17 +80,17 @@ block content
                 h3 MOS專家級認證 PPT 2007
                 h3 ACA PhotoshopCS5
         transition(name='fade')
-          #history.ui.segment.scroll(v-if='menuView == 2 || smWindow')
+          #history.ui.segment.scroll(v-if='menuView === 2 || smWindow')
             h1.title 經歷
             section#cd-timeline.cd-container
               .cd-timeline-block(v-for='event in timeline')
-                .cd-timeline-img.cd-edu(v-if='event.type == 1')
+                .cd-timeline-img.cd-edu(v-if='event.type === 1')
                   i.icon.student
-                .cd-timeline-img.cd-reward(v-if='event.type == 2')
+                .cd-timeline-img.cd-reward(v-if='event.type === 2')
                   i.icon.trophy
-                .cd-timeline-img.cd-event(v-if='event.type == 3')
+                .cd-timeline-img.cd-event(v-if='event.type === 3')
                   i.icon.flag
-                .cd-timeline-img.cd-work(v-if='event.type == 4')
+                .cd-timeline-img.cd-work(v-if='event.type === 4')
                   i.icon.suitcase
                 .cd-timeline-content
                   img(:src='event.img', v-if='event.img')
@@ -98,22 +98,22 @@ block content
                   p {{ event.text }}
                   span.cd-date {{ event.date }}
         transition(name='fade')
-          #skill.ui.segment.scroll(v-if='menuView == 3 || smWindow')
+          #skill.ui.segment.scroll(v-if='menuView === 3 || smWindow')
             h1.title 技能
             .skill-item(v-for='(skills, key) in skillbar')
-              h2(v-show='key == "webFrontEnd"')
+              h2(v-show='key === "webFrontEnd"')
                 i.html5.icon
                 | Web Front End
-              h2(v-show='key == "webBackEnd"')
+              h2(v-show='key === "webBackEnd"')
                 i.laptop.icon
                 | Web Back End
-              h2(v-show='key == "language"')
+              h2(v-show='key === "language"')
                 i.code.icon
                 | Language
-              h2(v-show='key == "media"')
+              h2(v-show='key === "media"')
                 i.film.icon
                 | Media
-              h2(v-show='key == "other"')
+              h2(v-show='key === "other"')
                 i.keyboard.icon
                 | Other
               .skillbar.clearfix(v-for='skill in skills')
@@ -122,7 +122,7 @@ block content
                 .skillbar-bar(:class='skillLevel(skill.percent)')
                 .skill-bar-percent {{ skill.comment }}
         transition(name='fade')
-          #collection.ui.segment.scroll(v-if='menuView == 4 || smWindow')
+          #collection.ui.segment.scroll(v-if='menuView === 4 || smWindow')
             h1.title 作品集
             #collectionCard.ui.three.column.grid.stackable
               .column(v-for='item in collection')
@@ -137,7 +137,7 @@ block content
                     h2 {{ item.header }}
                     p {{ item.text }}
                   .extra.content
-                    span
+                    span(v-if='item.githubpage')
                       a(:href='item.githubpage', target='_blank')
                         i.github.icon
                         | Github
@@ -161,7 +161,6 @@ block content
                       a(href='#')
                     li(value='3')
                       a(href='#')
-  
 
 block append js
   script(src='./js/loading.js')
