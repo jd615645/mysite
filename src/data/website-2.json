@@ -1,1 +1,152 @@
-{"columns":{"type":["webFrontEnd","webFrontEnd","webFrontEnd","webFrontEnd","webFrontEnd","webBackEnd","webBackEnd","webBackEnd","webBackEnd","webBackEnd","language","language","language","language","media","media","media","media","other","other","other","other"],"header":["HTML","JQuery","JavaScript","CSS","LESS.js","Node.js","Mongodb","MySQL","PHP","JSP","Visual Basic","C/C++","Python","Java","PhotoShop","VideoStudio","Premiere","Affect Effect","Word","PowerPoint","Excel","Markdown"],"comment":["Great","Great","Good","Good","Learning","Learning","Learning","Learning","Not Bad","Not Bad","Good","Good","Learning","Not Bad","Good","Good","Good","Not Bad","Great","Great","Good","Good"],"percent":[85,85,66,66,33,33,33,33,15,15,66,66,33,25,66,66,50,15,85,85,66,66]},"rows":[{"type":"webFrontEnd","header":"HTML","comment":"Great","percent":85},{"type":"webFrontEnd","header":"JQuery","comment":"Great","percent":85},{"type":"webFrontEnd","header":"JavaScript","comment":"Good","percent":66},{"type":"webFrontEnd","header":"CSS","comment":"Good","percent":66},{"type":"webFrontEnd","header":"LESS.js","comment":"Learning","percent":33},{"type":"webBackEnd","header":"Node.js","comment":"Learning","percent":33},{"type":"webBackEnd","header":"Mongodb","comment":"Learning","percent":33},{"type":"webBackEnd","header":"MySQL","comment":"Learning","percent":33},{"type":"webBackEnd","header":"PHP","comment":"Not Bad","percent":15},{"type":"webBackEnd","header":"JSP","comment":"Not Bad","percent":15},{"type":"language","header":"Visual Basic","comment":"Good","percent":66},{"type":"language","header":"C/C++","comment":"Good","percent":66},{"type":"language","header":"Python","comment":"Learning","percent":33},{"type":"language","header":"Java","comment":"Not Bad","percent":25},{"type":"media","header":"PhotoShop","comment":"Good","percent":66},{"type":"media","header":"VideoStudio","comment":"Good","percent":66},{"type":"media","header":"Premiere","comment":"Good","percent":50},{"type":"media","header":"Affect Effect","comment":"Not Bad","percent":15},{"type":"other","header":"Word","comment":"Great","percent":85},{"type":"other","header":"PowerPoint","comment":"Great","percent":85},{"type":"other","header":"Excel","comment":"Good","percent":66},{"type":"other","header":"Markdown","comment":"Good","percent":66}]}
+[
+  {
+    "type": "webFrontEnd",
+    "header": "HTML",
+    "comment": "Great",
+    "percent": 85
+  },
+  {
+    "type": "webFrontEnd",
+    "header": "JQuery",
+    "comment": "Great",
+    "percent": 85
+  },
+  {
+    "type": "webFrontEnd",
+    "header": "JavaScript",
+    "comment": "Good",
+    "percent": 66
+  },
+  {
+    "type": "webFrontEnd",
+    "header": "CSS",
+    "comment": "Good",
+    "percent": 66
+  },
+  {
+    "type": "webFrontEnd",
+    "header": "Pug/Jade",
+    "comment": "Good",
+    "percent": 66
+  },
+  {
+    "type": "webFrontEnd",
+    "header": "Vue.js",
+    "comment": "Learning",
+    "percent": 40
+  },
+  {
+    "type": "webFrontEnd",
+    "header": "LESS.js",
+    "comment": "Learning",
+    "percent": 40
+  },
+  {
+    "type": "webFrontEnd",
+    "header": "Sass/Scss",
+    "comment": "Not Bad",
+    "percent": 30
+  },
+  {
+    "type": "webBackEnd",
+    "header": "Node.js",
+    "comment": "Learning",
+    "percent": 40
+  },
+  {
+    "type": "webBackEnd",
+    "header": "Mongodb",
+    "comment": "Learning",
+    "percent": 40
+  },
+  {
+    "type": "webBackEnd",
+    "header": "MySQL",
+    "comment": "Learning",
+    "percent": 40
+  },
+  {
+    "type": "webBackEnd",
+    "header": "PHP",
+    "comment": "Not Bad",
+    "percent": 30
+  },
+  {
+    "type": "webBackEnd",
+    "header": "JSP",
+    "comment": "Not Bad",
+    "percent": 30
+  },
+  {
+    "type": "language",
+    "header": "Visual Basic",
+    "comment": "Good",
+    "percent": 66
+  },
+  {
+    "type": "language",
+    "header": "Python",
+    "comment": "Learning",
+    "percent": 40
+  },
+  {
+    "type": "language",
+    "header": "C/C++",
+    "comment": "Not Bad",
+    "percent": 30
+  },
+  {
+    "type": "language",
+    "header": "Java",
+    "comment": "Not Bad",
+    "percent": 30
+  },
+  {
+    "type": "media",
+    "header": "PhotoShop",
+    "comment": "Good",
+    "percent": 66
+  },
+  {
+    "type": "media",
+    "header": "VideoStudio",
+    "comment": "Good",
+    "percent": 66
+  },
+  {
+    "type": "media",
+    "header": "Premiere",
+    "comment": "Good",
+    "percent": 66
+  },
+  {
+    "type": "media",
+    "header": "Affect Effect",
+    "comment": "Not Bad",
+    "percent": 30
+  },
+  {
+    "type": "other",
+    "header": "Word",
+    "comment": "Great",
+    "percent": 85
+  },
+  {
+    "type": "other",
+    "header": "PowerPoint",
+    "comment": "Great",
+    "percent": 85
+  },
+  {
+    "type": "other",
+    "header": "Excel",
+    "comment": "Good",
+    "percent": 66
+  },
+  {
+    "type": "other",
+    "header": "Markdown",
+    "comment": "Good",
+    "percent": 66
+  }
+]

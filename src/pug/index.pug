@@ -5,21 +5,20 @@ block style
   link(rel='stylesheet', href='./style/skillbar.css')
   link(rel='stylesheet', href='./style/timeline.css')
 block content
-  transition(name='fade')
-    #loading(v-show='waitLoading')
-      .drip
+  #loading(v-show='waitLoading')
+    .drip
   #mainPage.ui.container
     #main.ui.grid
       #menu.three.wide.column
         .ui.secondary.vertical.menu
-          a.item(:class='{active: menuView == 0 }', @click='menuView = 0;') 主頁
-          a.item(:class='{active: menuView == 1 }', @click='menuView = 1;') 關於我
-          a.item(:class='{active: menuView == 2 }', @click='menuView = 2;') 經歷
-          a.item(:class='{active: menuView == 3 }', @click='menuView = 3;') 技能
-          a.item(:class='{active: menuView == 4 }', @click='menuView = 4;') 作品集
+          a.item(:class='{active: menuView === 0 }', @click='menuView = 0;') 主頁
+          a.item(:class='{active: menuView === 1 }', @click='menuView = 1;') 關於我
+          a.item(:class='{active: menuView === 2 }', @click='menuView = 2;') 經歷
+          a.item(:class='{active: menuView === 3 }', @click='menuView = 3;') 技能
+          a.item(:class='{active: menuView === 4 }', @click='menuView = 4;') 作品集
       #context.thirteen.wide.column
         transition(name='fade')
-          #home.ui.segment(v-if='menuView == 0 || smWindow')
+          #home.ui.segment(v-if='menuView === 0 || smWindow')
             #myPhoto.ui.center.aligned.container
               img(src='./img/myphoto.png')
             h2 I'm Sakamoto
@@ -67,6 +66,7 @@ block content
                   small  Club
                 h3 中興大學資訊社 副社長
                 h3 中興大學資訊社 社長
+                h3 中興大學學生會資訊部 副部長
               .eight.wide.column
                 h2
                   i.configure.icon
@@ -93,7 +93,7 @@ block content
                 .cd-timeline-img.cd-work(v-if='event.type === 4')
                   i.icon.suitcase
                 .cd-timeline-content
-                  img(:src='event.img', v-if='event.img')
+                  img(:src='event.img', v-if='event.img !== ""')
                   h2 {{ event.header }}
                   p {{ event.text }}
                   span.cd-date {{ event.date }}

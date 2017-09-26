@@ -71,11 +71,6 @@ gulp.task('data', () => {
     .pipe(gulp.dest(paths.dist.data))
 })
 
-gulp.task('theme', () => {
-  gulp.src(paths.src.theme)
-    .pipe(gulp.dest(paths.dist.theme))
-})
-
 gulp.task('webserver', () => {
   gulp
     .src(paths.dist.html)
@@ -98,4 +93,4 @@ gulp.task('watch', () => {
 })
 
 gulp.task('default', ['webserver', 'watch'])
-gulp.task('build', ['pug', 'less', 'css', 'theme', 'scripts', 'lib', 'data', 'font'])
+gulp.task('build', ['pug', 'less', 'css', 'scripts', 'lib', 'data', 'font'])

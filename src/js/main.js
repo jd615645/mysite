@@ -1,6 +1,6 @@
 var vm = new Vue({
   el: '#app',
-  data: function() {
+  data: function () {
     return {
       waitLoading: true,
       menuView: 0,
@@ -21,10 +21,10 @@ var vm = new Vue({
     $.when
       .apply($, dataInput)
       .then((...sheetData) => {
-        this.timeline = sheetData[0][0]['rows']
+        this.timeline = sheetData[0][0]
 
         var skillbar = {}
-        $.each(sheetData[1][0]['rows'], (key, val) => {
+        $.each(sheetData[1][0], (key, val) => {
           if (!_.has(skillbar, val['type'])) {
             _.setWith(skillbar, val['type'], [], Object)
           }
@@ -32,11 +32,10 @@ var vm = new Vue({
         })
         this.skillbar = skillbar
 
-        this.collection = sheetData[2][0]['rows']
+        this.collection = sheetData[2][0]
 
         $('.skillbar').each(() => {
           var percent = $(this).attr('data-percent')
-          console.log(percent)
           $(this).find('.skillbar-bar').animate({
             width: $(this).attr('data-percent')
           }, 6000)
@@ -57,10 +56,10 @@ var vm = new Vue({
       if (num > 66) {
         return 'great'
       }
-      else if (num > 33) {
+      else if (num > 40) {
         return 'good'
       }
-      else if (num > 15) {
+      else if (num > 30) {
         return 'learning'
       }else {
         return 'notbad'
