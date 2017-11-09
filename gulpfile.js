@@ -35,10 +35,12 @@ gulp.task('pug', () => {
 gulp.task('less', () => {
   gulp.src(paths.src.less)
     .pipe($.less())
+    .pipe($.cleanCss({ compatibility: '*'}))
     .pipe(gulp.dest(paths.dist.style))
 })
 gulp.task('css', () => {
   gulp.src(paths.src.css)
+    .pipe($.cleanCss({ compatibility: '*'}))
     .pipe(gulp.dest(paths.dist.style))
 })
 
@@ -52,6 +54,7 @@ gulp.task('scripts', () => {
 })
 gulp.task('lib', () => {
   gulp.src(paths.src.lib)
+    .pipe($.uglify())
     .pipe(gulp.dest(paths.dist.lib))
 })
 
